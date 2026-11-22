@@ -1,60 +1,29 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Help Kendy — Hope for Haiti</title>
-<style>
-:root{--navy:#10243a;--blue:#1769aa;--gold:#f2b84b;--cream:#fffaf1}
-*{box-sizing:border-box}body{margin:0;font-family:Arial,Helvetica,sans-serif;background:var(--cream);color:#233244;line-height:1.6}
-header{background:linear-gradient(135deg,#10243a,#1769aa);color:white;padding:54px 20px;text-align:center}
-header .tag{letter-spacing:2px;text-transform:uppercase;font-size:12px;color:#ffe2a3;font-weight:bold}
-h1{font-size:clamp(38px,8vw,64px);line-height:1.05;margin:14px 0}
-header p{max-width:650px;margin:0 auto;font-size:18px}
-.wrap{max-width:900px;margin:auto;padding:28px 18px}
-.card{background:white;border-radius:18px;padding:26px;margin:18px 0;box-shadow:0 8px 28px #10243a12}
-.goalhead{display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap;font-weight:bold}
-.track{height:13px;background:#e8edf2;border-radius:20px;overflow:hidden;margin:14px 0}
-.track span{display:block;width:0;height:100%;background:var(--gold)}
-.amount{font-size:34px;color:var(--blue);font-weight:bold}
-h2{color:var(--navy);margin-top:0}
-.btn{display:inline-block;background:var(--gold);color:#172b40;text-decoration:none;padding:13px 22px;border-radius:30px;font-weight:bold;margin-top:8px}
-.note{background:#fff4d9;border-left:4px solid var(--gold);padding:14px;border-radius:8px}
-footer{text-align:center;background:var(--navy);color:#dce7f1;padding:24px}
-.small{font-size:13px;color:#68798a}
-</style>
-</head>
-<body>
-<header>
- <div class="tag">A family fundraising campaign</div>
- <h1>HELP KENDY</h1>
- <p>Hope for Haiti — Every donation brings hope.</p>
-</header>
-<main class="wrap">
- <section class="card">
-  <div class="goalhead"><span>Fundraising goal</span><span>USD $1,000</span></div>
-  <div class="track"><span></span></div>
-  <div class="amount">$1,000</div>
-  <p>Our goal is to raise $1,000 to help repair our family home and support our family after a difficult medical period.</p>
- </section>
- <section class="card">
-  <h2>Our story</h2>
-  <p>My name is Kendy, and my family is from southern Haiti. Our family home was damaged, and we are trying to repair it so that we can have a safer place to live, especially when it rains.</p>
-  <p>My mother also went through a difficult period of illness and hospitalization. The medical expenses used much of the savings our family had set aside for repairing the house.</p>
-  <p>We are asking kind people around the world to consider supporting us. Every contribution, no matter the amount, can help us move forward. We are grateful for your kindness, prayers, and support.</p>
- </section>
- <section class="card">
-  <h2>How to donate</h2>
-  <p>We plan to receive donations through MonCash in Haiti. Please contact Kendy to receive the verified payment instructions.</p>
-  <div class="note"><strong>Important:</strong> The donation button and MonCash payment process are not connected yet. Do not send money until the official MonCash details and a safe payment method have been added and tested.</div>
-  <span class="btn">Donation instructions coming soon</span>
-  <p class="small">Campaign organizer: Kendy · Haiti</p>
- </section>
- <section class="card">
-  <h2>Thank you</h2>
-  <p>Thank you for taking the time to read our story and for considering helping our family. May God bless you for your generosity.</p>
- </section>
-</main>
-<footer>HELP KENDY · HOPE FOR HAITI</footer>
-</body>
-</html>
+<section class="card" style="margin-top: 20px;">
+  <h2>Voye don ak NatCash</h2>
+  <p>Ou ka voye kontribisyon w dirèkteman sou kont NatCash sa a:</p>
+
+  <div class="note" style="padding: 14px 16px; border-radius: 8px; margin: 14px 0;">
+    <p style="margin: 0 0 6px 0;"><strong>Nimewo NatCash:</strong> <span id="natcash-number">+509 3348-1203</span></p>
+    <p style="margin: 0;"><strong>Non kont lan:</strong> Kendy / Non benefisyè a</p>
+  </div>
+
+  <button type="button" class="btn" onclick="copyNatcash()" style="border: none; cursor: pointer; padding: 10px 16px; border-radius: 8px; font-weight: bold;">
+    Kopye nimewo NatCash la
+  </button>
+  <span id="copy-status" style="margin-left: 10px; font-size: 14px;"></span>
+
+  <p class="small" style="margin-top: 12px;">
+    Apre ou fin fè transfè a, ou ka voye yon prèv/mesaj ba nou pou nou mete ajou swivi a.
+  </p>
+</section>
+
+<script>
+  function copyNatcash() {
+    const number = document.getElementById("natcash-number").innerText.trim();
+    navigator.clipboard.writeText(number).then(() => {
+      document.getElementById("copy-status").innerText = "Nimewo a kopye!";
+    }).catch(() => {
+      document.getElementById("copy-status").innerText = "Kopye nimewo a manyèlman.";
+    });
+  }
+</script>
