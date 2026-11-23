@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="ht">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Hope for Haiti — Ede fanmi an</title>
+  <style>
+    :root { --blue:#073b9a; --red:#e51d35; --gold:#fff1a8; --ink:#172033; }
+    * { box-sizing:border-box; }
+    body { margin:0; font-family:Arial, sans-serif; color:var(--ink); background:#f2f6fc; line-height:1.55; }
+    header { padding:30px 18px 24px; text-align:center; color:white; background:linear-gradient(135deg,#073b9a,#1265c8); }
+    .mark { font-size:42px; }
+    h1 { margin:4px 0; font-size:clamp(2rem,8vw,3.3rem); }
+    header p { margin:8px auto 0; max-width:650px; font-size:1.08rem; }
+    main { width:min(900px,94%); margin:22px auto; }
+    .card { background:white; border-radius:18px; padding:22px; margin:18px 0; box-shadow:0 5px 20px #0b347015; }
+    h2 { color:var(--blue); margin:0 0 12px; }
+    .story { font-size:1.04rem; }
+    .cta { display:block; width:100%; border:0; border-radius:16px; padding:18px 12px; background:var(--red); color:white; text-align:center; text-decoration:none; font-weight:800; font-size:clamp(1.5rem,6vw,2.3rem); box-shadow:0 5px 0 #a90e24; }
+    .cta small { display:block; font-size:.9rem; font-weight:600; }
+    .amounts { display:grid; grid-template-columns:repeat(2,1fr); gap:12px; margin:18px 0; }
+    .amount { border:2px solid var(--blue); border-radius:12px; padding:13px; text-align:center; color:var(--blue); background:#f5f8ff; font-size:1.35rem; font-weight:800; }
+    .paybox { background:var(--gold); border:1px solid #f1d85b; border-radius:15px; padding:18px; }
+    .number { display:block; font-size:clamp(1.45rem,6vw,2rem); font-weight:800; color:var(--blue); overflow-wrap:anywhere; }
+    .copy { margin-top:12px; border:0; border-radius:9px; padding:12px 16px; background:var(--blue); color:white; font-weight:700; font-size:1rem; }
+    .wa { display:block; margin-top:14px; padding:14px; border-radius:12px; background:#138b49; color:white; text-align:center; text-decoration:none; font-weight:800; }
+    .note { font-size:.92rem; color:#475569; }
+    footer { text-align:center; background:#062d78; color:white; padding:22px 14px; margin-top:28px; }
+    @media(min-width:600px){ .amounts{grid-template-columns:repeat(4,1fr);} }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="mark">❤️ 🇭🇹</div>
+    <h1>Hope for Haiti</h1>
+    <p><strong>Ann ede fanmi an!</strong><br>Ansanm, nou kapab ede fanmi an fini reparasyon kay la.</p>
+  </header>
+
+  <main>
+    <section class="card">
+      <h2>Istwa fanmi an</h2>
+      <p class="story">
+        Kay fanmi nou an te andomaje nan dat 4 oktòb 2016. Dènyèman, manman nou te pase anviwon twa mwa lopital akoz dyabèt epi li te fè operasyon nan pye. Depans lopital yo te itilize prèske tout ekonomi fanmi an.
+      </p>
+      <p class="story">
+        Kounye a, nou bezwen èd pou kontinye reparasyon kay la, sitou pati anlè kay la. Lè lapli tonbe, li difisil pou fanmi an dòmi an sekirite. Nenpòt kontribisyon ap ede nou avanse.
+      </p>
+      <p><strong>Yon ti èd ka fè gwo diferans. Mèsi anpil, Bondye beni nou!</strong></p>
+    </section>
+
+    <section class="card" id="don">
+      <a class="cta" href="#peman">❤️ DONATE NOW <small>Fè yon don pou ede nou repare kay la</small></a>
+      <h2 style="margin-top:24px">Chwazi yon montan ou ta renmen bay</h2>
+      <div class="amounts">
+        <div class="amount">$10</div><div class="amount">$25</div>
+        <div class="amount">$50</div><div class="amount">$100</div>
+      </div>
+      <p class="note">Montan sa yo se egzanp sèlman. Ou ka voye nenpòt kantite ou kapab.</p>
+    </section>
+
+    <section class="card" id="peman">
+      <h2>Voye don an sou NatCash</h2>
+      <div class="paybox">
+        <div><strong>NatCash</strong></div>
+        <span class="number" id="natnumber">+509 3348-1203</span>
+        <p><strong>Non kont lan:</strong> Kendy / Non benefisyè a</p>
+        <button class="copy" onclick="copyNumber()">Kopye nimewo NatCash la</button>
+        <p id="copymsg" class="note" aria-live="polite"></p>
+      </div>
+      <a class="wa" href="https://wa.me/50933639758?text=Bonjou%2C%20mwen%20voye%20yon%20don%20pou%20Hope%20for%20Haiti.%20Men%20konfimasyon%20mwen." target="_blank" rel="noopener">
+        Konfime don an sou WhatsApp
+      </a>
+      <p class="note">Apre ou fin fè transfè a, ou ka voye yon mesaj sou WhatsApp pou fè nou konnen. Pa pataje PIN oswa modpas NatCash ou.</p>
+    </section>
+  </main>
+
+  <footer>
+    Mèsi anpil pou sipò nou!<br>Bondye beni nou. ❤️
+  </footer>
+
+  <script>
+    function copyNumber() {
+      const number = "50933481203";
+      if (navigator.clipboard && window.isSecureContext) {
+        navigator.clipboard.writeText(number).then(() => {
+          document.getElementById("copymsg").textContent = "Nimewo a kopye.";
+        }).catch(() => {
+          document.getElementById("copymsg").textContent = "Tanpri kopye nimewo a: " + number;
+        });
+      } else {
+        document.getElementById("copymsg").textContent = "Nimewo NatCash la: " + number;
+      }
+    }
+  </script>
+</body>
+</html>
